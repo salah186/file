@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main(){
+    FILE *file;
+    char name[50];
+    int grade;
+
+    file = (fopen("data.txt", "r"));
+
+    if(file == NULL){
+        printf("unable to open the file");
+        return 1;
+    }
+
+    printf("Student Data\n");
+
+    while(fscanf(file,"%s %d",name,&grade) != EOF){
+        printf("student %s , grade %d\n",name ,grade);
+    }
+
+    fclose(file);
+    return 0;
+
+}
